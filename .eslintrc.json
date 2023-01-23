@@ -5,7 +5,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard-with-typescript"
+        "standard-with-typescript",
+        "plugin:prettier/recommended"
     ],
     "ignorePatterns": [
         "*.config.js",
@@ -21,7 +22,8 @@
     },
     "plugins": [
         "react",
-        "@typescript/eslint"
+        "@typescript/eslint",
+        "prettier"
     ],
     "rules": {
         "react/react-in-jsx-scope": ["off"],
