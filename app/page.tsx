@@ -1,9 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-function Home() {
+function Home (): React.ReactElement {
   return (
-    <h1 className='font-bold'>Portfolio - nsptel</h1>
-  );
+    <>
+      <div className='bg-white'>
+        <h1 className='text-black'>Portfolio - nsptel</h1>
+      </div>
+    </>
+  )
 }
 
-export default Home;
+export default Home
