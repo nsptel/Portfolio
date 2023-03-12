@@ -25,12 +25,7 @@ RUN adduser -S nsptel -u 1001
 RUN mkdir -p /usr/app
 WORKDIR /usr/app
 # copy only necessary directories and files from BUILD_IMAGE
-COPY --from=BUILD_IMAGE --chown=nsptel:default_group /usr/app/node_modules ./node_modules
-COPY --from=BUILD_IMAGE --chown=nsptel:default_group /usr/app/package.json ./
-COPY --from=BUILD_IMAGE --chown=nsptel:default_group /usr/app/yarn.lock ./
-COPY --from=BUILD_IMAGE --chown=nsptel:default_group /usr/app/public ./
-COPY --from=BUILD_IMAGE --chown=nsptel:default_group /usr/app/.next ./.next
-COPY --from=BUILD_IMAGE --chown=nsptel:default_group /usr/app/next.config.js ./
+COPY --from=BUILD_IMAGE --chown=nsptel:default_group /usr/app/ .
 
 # expose the port and start prod server
 EXPOSE 3000
