@@ -1,30 +1,32 @@
+def docker = "/usr/local/Cellar/jenkins/2.396/homebrew.mxcl.jenkins.plist"
+
 pipeline {
     agent any
 
     stages {
         stage('Build') {
             steps {
-                bat 'echo "Building the image..."'
-                bat 'docker build -t nsptel/portfolio:test .'
+                sh 'echo "Building the image..."'
+                sh '${docker} build -t nsptel/portfolio:test .'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'docker run -d --name test-container-portfolio -p 3000:3000 nsptel/portfolio:test'
+                sh '${docker} run -d --name test-container-portfolio -p 3000:3000 nsptel/portfolio:test'
                 // need to add something that executes tests on running container 
-                bat 'docker stop test-container-portfolio'
-                bat 'docker rm test-container-portfolio'
-                bat 'echo "Deleted the container"'
+                sh '${docker} stop test-container-portfolio'
+                sh '${docker} rm test-container-portfolio'
+                sh 'echo "Deleted the container"'
             }
         }
 
         stage('Push') {
             steps {
-                bat 'echo "Pushing the image to docker hub..."'
-                bat 'docker login --username nsptel --password dckr_pat_1wG5G9SCrUScpBn67cF0Y_CqXc4'
-                bat 'docker push nsptel/portfolio:test'
-                bat 'echo "Image pushed successfully!"'
+                sh 'echo "Pushing the image to docker hub..."'
+                sh '${docker} login --username nsptel --password dckr_pat_zlBoODMArGDBM5VJwZITiEViZEE'
+                sh '${docker} push nsptel/portfolio:test'
+                sh 'echo "Image pushed successfully!"'
             }
         }
     }
