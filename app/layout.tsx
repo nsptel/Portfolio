@@ -7,7 +7,9 @@ export default function RootLayout({
 }): React.ReactElement {
   return (
     <html>
-      <head></head>
+      <head>
+        <title>Nilkumar Patel</title>
+      </head>
       <body>{children}</body>
     </html>
   );
