@@ -12,7 +12,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'docker run -d --name test-container-portfolio -p 3000:3000 nsptel/portfolio:test'
-        sh 'docker exec -it --name test-container-portfolio /bin/sh'
+        sh 'docker exec -it test-container-portfolio /bin/sh'
         echo 'Tests should run here.'
         sh 'docker stop test-container-portfolio'
         sh 'docker rm test-container-portfolio'
