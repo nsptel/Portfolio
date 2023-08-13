@@ -1,0 +1,15 @@
+version: '0.1'
+services:
+  web:
+    image: nsptel/portfolio:dev
+    container_name: portfolio-web
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+    command: npm run dev
+    ports:
+      - '3001:3000'
+    environment:
+      NODE_ENV: development
