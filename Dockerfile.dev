@@ -1,0 +1,10 @@
+# pull node image
+FROM node:18.14.2-alpine3.17 AS BUILD_IMAGE
+#create and use app directory
+RUN mkdir -p /usr/app
+WORKDIR /usr/app
+# copy code
+COPY . .
+# install deps and build
+RUN yarn install
+RUN yarn build
