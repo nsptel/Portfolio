@@ -1,0 +1,22 @@
+name: Jenkins CI/CD
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  jenkins-ci-cd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Trigger Jenkins Build
+        env:
+          JENKINS_JOB_TOKEN: ${{ secrets.JENKINS_JOB_TOKEN }}
+        run: |
+          curl -X POST -u ${{ secrets.JENKINS_USERNAME }}:${{ secrets.JENKINS_JOB_TOKEN }} \
+          "${{ secrets.JENKINS_HOST_URL }}/job/Portfolio%20-%20Multibranch/job/${{ github.head_ref }}/buildWithParameters?PR_NUMBER=${{ github.event.pull_request.number }}"
