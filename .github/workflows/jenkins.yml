@@ -1,5 +1,6 @@
 name: Jenkins CI/CD
 
+# on pull request
 on:
   pull_request:
     types:
