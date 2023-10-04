@@ -8,7 +8,7 @@
     "standard-with-typescript",
     "plugin:prettier/recommended"
   ],
-  "ignorePatterns": ["tests", "*.config.js", "*.d.ts"],
+  "ignorePatterns": ["tests", "**/*.js", "*.d.ts"],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -20,6 +20,7 @@
   "rules": {
     "react/react-in-jsx-scope": ["off"],
     "react/display-name": ["off"],
+    "react/prop-types": ["off"],
     "prettier/prettier": ["error", { "endOfLine": "auto" }]
   }
 }
