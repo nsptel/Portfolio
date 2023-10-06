@@ -29,3 +29,4 @@ COPY --from=BUILD_IMAGE --chown=nsptel:default_group /usr/app/ .
 
 # expose the port and start prod server
 EXPOSE 3000
+CMD [ "yarn", "start" ]
