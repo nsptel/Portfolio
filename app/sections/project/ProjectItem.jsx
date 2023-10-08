@@ -1,22 +1,13 @@
-import { Suspense, useRef } from 'react';
+import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 import Link from 'next/link';
-import ImageGallery from 'react-image-gallery';
-import { Loader } from '@/_components';
 import { VscSourceControl } from 'react-icons/vsc';
 import { FiExternalLink } from 'react-icons/fi';
 
-import 'react-image-gallery/styles/css/image-gallery.css';
-
 export function ProjectItem({ project, index }) {
-  const { description, images, liveUrl, repoUrl, stack, title } = project;
+  const { description, liveUrl, repoUrl, stack, title } = project;
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { once: true });
-
-  const galleryImages = images.map((img) => ({
-    original: img,
-    loading: 'lazy',
-  }));
 
   return (
     <article
@@ -34,21 +25,6 @@ export function ProjectItem({ project, index }) {
         }ms`,
       }}
     >
-      <figure>
-        <div className="aspect-[12/9.2] w-full h-full">
-          <Suspense fallback={<Loader />}>
-            <ImageGallery
-              items={galleryImages}
-              showPlayButton={false}
-              showThumbnails={false}
-              showIndex
-              lazyload
-              additionalClass="gallery-item"
-            />
-          </Suspense>
-        </div>
-      </figure>
-
       <div className="flex-[2] px-5 py-6 text-center flex flex-col gap-10">
         <header className="flex-1 flex items-center justify-start flex-col gap-3">
           <h3 tabIndex="0" className="text-2xl font-bold">
