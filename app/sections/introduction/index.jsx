@@ -116,9 +116,9 @@ export function WelcomeSection() {
                 onClick={onClick}
                 tabIndex="0"
                 className="btn"
-                aria-label="Latest projects"
+                aria-label="projects"
               >
-                See my latest projects
+                See some of my projects
               </Link>
             </div>
           </div>
