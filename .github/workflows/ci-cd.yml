@@ -62,6 +62,7 @@ jobs:
           images: nsptel/portfolio
 
       - name: Build & Push Image
+        id: pushImage
         uses: docker/build-push-action@v5
         with:
           context: .
@@ -75,7 +76,8 @@ jobs:
           PRIVATE_KEY: ${{ secrets.AWS_SECRET }}
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${{ secrets.AWS_USERNAME }}@${{ secrets.AWS_PUBLIC_IP }}
+          ssh -o StrictHostKeyChecking=no -i private_key ${{ secrets.AWS_USERNAME }}@${{ secrets.AWS_PUBLIC_IP }} '
             cd /home/ec2-user/scripts
             bash deploy-portfolio.sh
             exit
+          '
