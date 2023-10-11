@@ -11,8 +11,6 @@ const TimeLineData = [
 ];
 
 export function TimeLine() {
-  /// TODO: Add color mode support
-  const colorMode = 'dark';
   const [, setActiveItem] = useState(0);
   const carouselRef = useRef(null);
   // const animRef = useRef(null);
@@ -98,7 +96,7 @@ export function TimeLine() {
                     height="6"
                     viewBox="0 0 208 6"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill={colorMode === 'dark' ? '#fff' : '#232323'}
+                    className="fill-current"
                   >
                     <path
                       fillRule="evenodd"
