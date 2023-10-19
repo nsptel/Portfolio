@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { LazyMotion, domAnimation, useInView } from 'framer-motion';
 import { HeadingDivider } from '@/_components';
 import { TimeLine } from './TimeLine';
+import { BsFillSaveFill } from 'react-icons/bs';
 
 export function AboutSection() {
   const ref = useRef(null);
@@ -49,6 +50,27 @@ export function AboutSection() {
         </div>
 
         <TimeLine />
+
+        <div
+          ref={ref}
+          className="pt-10"
+          style={{
+            transform: isInView ? 'none' : 'translateY(50px)',
+            opacity: isInView ? 1 : 0,
+            transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
+          }}
+        >
+          <a
+            href="/assets/Resume.pdf"
+            tabIndex="0"
+            className="btn"
+            aria-label="Latest projects"
+            rel="noreferrer"
+            download
+          >
+            Download My Resume &nbsp; <BsFillSaveFill />
+          </a>
+        </div>
       </section>
     </LazyMotion>
   );
