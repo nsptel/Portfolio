@@ -21,7 +21,7 @@ export function Filter({ onClick = (f) => f }) {
         className="flex items-start flex-col sm:flex-row sm:items-center gap-4 my-10"
         style={{
           opacity: isInView ? 1 : 0,
-          transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 1s',
+          transition: 'all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s',
         }}
       >
         <h3

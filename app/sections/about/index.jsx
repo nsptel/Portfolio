@@ -22,7 +22,7 @@ export function AboutSection() {
             style={{
               transform: isInView ? 'none' : 'translateX(-200px)',
               opacity: isInView ? 1 : 0,
-              transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
+              transition: 'all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s',
             }}
           >
             <p className="my-3.5">
@@ -57,7 +57,7 @@ export function AboutSection() {
           style={{
             transform: isInView ? 'none' : 'translateY(50px)',
             opacity: isInView ? 1 : 0,
-            transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
+            transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s',
           }}
         >
           <a

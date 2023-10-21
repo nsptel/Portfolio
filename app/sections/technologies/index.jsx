@@ -20,7 +20,7 @@ export function TechnologiesSection() {
           style={{
             transform: isTextInView ? 'none' : 'translateX(-200px)',
             opacity: isTextInView ? 1 : 0,
-            transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
+            transition: 'all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s',
           }}
         >
           I work (have worked) with the following technologies and tools...
@@ -43,7 +43,7 @@ export function TechnologiesSection() {
                             : `translateY(${200 / index}px)`
                         }`,
                     opacity: isStackInView ? 1 : 0,
-                    transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${
+                    transition: `all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) ${
                       index === 0 ? 0 : 0.5 * index
                     }s`,
                   }}
